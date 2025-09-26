@@ -1,0 +1,542 @@
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+.navbar .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #00d4ff, #00ffaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.navbar .nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+@media (max-width: 768px) {
+  .navbar .nav-menu {
+    display: none;
+  }
+}
+.navbar .nav-menu .nav-link {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.navbar .nav-menu .nav-link:hover, .navbar .nav-menu .nav-link.active {
+  color: #00d4ff;
+}
+.navbar .nav-menu .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #00d4ff, #00ffaa);
+  transition: width 0.3s ease;
+}
+.navbar .nav-menu .nav-link:hover::after, .navbar .nav-menu .nav-link.active::after {
+  width: 100%;
+}
+.navbar .theme-toggle {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: transparent;
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.navbar .theme-toggle:hover {
+  background: #00d4ff;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+.navbar .mobile-menu-btn {
+  display: none;
+}
+@media (max-width: 768px) {
+  .navbar .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+.contact-header {
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact-header .section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+.contact-header .section-subtitle {
+  color: #b0b0b0;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.contact-content {
+  padding: 0 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact-content .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .contact-content .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+.contact-content .contact-grid .contact-info {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: 0.4s;
+}
+.contact-content .contact-grid .contact-info .info-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+.contact-content .contact-grid .contact-info .info-description {
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+.contact-content .contact-grid .contact-info .contact-methods .contact-method {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: #2a2a2a;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.contact-content .contact-grid .contact-info .contact-methods .contact-method:hover {
+  border-color: #00d4ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.contact-content .contact-grid .contact-info .contact-methods .contact-method .method-icon {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #00d4ff, #00ffaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.contact-content .contact-grid .contact-info .contact-methods .contact-method .method-info {
+  flex: 1;
+}
+.contact-content .contact-grid .contact-info .contact-methods .contact-method .method-info .method-label {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.contact-content .contact-grid .contact-info .contact-methods .contact-method .method-info .method-value a {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.contact-content .contact-grid .contact-info .social-section {
+  margin-top: 3rem;
+}
+.contact-content .contact-grid .contact-info .social-section .social-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+.contact-content .contact-grid .contact-info .social-section .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+.contact-content .contact-grid .contact-info .social-section .social-links .social-link {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: transparent;
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+  padding: 1.5rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+.contact-content .contact-grid .contact-info .social-section .social-links .social-link:hover {
+  background: #00d4ff;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+.contact-content .contact-grid .contact-info .social-section .social-links .social-link:hover {
+  box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+  transform: translateY(-3px);
+}
+.contact-content .contact-grid .contact-form {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: 0.6s;
+}
+.contact-content .contact-grid .contact-form .form-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+.contact-content .contact-grid .contact-form .form-container {
+  background: #2a2a2a;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group {
+  margin-bottom: 2rem;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-input,
+.contact-content .contact-grid .contact-form .form-container .form-group .form-textarea {
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-input:focus,
+.contact-content .contact-grid .contact-form .form-container .form-group .form-textarea:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-input::-moz-placeholder, .contact-content .contact-grid .contact-form .form-container .form-group .form-textarea::-moz-placeholder {
+  color: #b0b0b0;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-input::placeholder,
+.contact-content .contact-grid .contact-form .form-container .form-group .form-textarea::placeholder {
+  color: #b0b0b0;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-input.error,
+.contact-content .contact-grid .contact-form .form-container .form-group .form-textarea.error {
+  border-color: #ff4757;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .error-message {
+  color: #ff4757;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+.contact-content .contact-grid .contact-form .form-container .form-group .error-message.show {
+  display: block;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #00d4ff, #00ffaa);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  width: 100%;
+  justify-content: center;
+  font-size: 1.1rem;
+  padding: 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit .submit-text {
+  transition: opacity 0.2s ease;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit .submit-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit .submit-loading.show {
+  opacity: 1;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit.loading .submit-text {
+  opacity: 0;
+}
+.contact-content .contact-grid .contact-form .form-container .form-submit.loading .submit-loading {
+  opacity: 1;
+}
+.contact-content .contact-grid .contact-form .form-container .form-success {
+  background: rgba(0, 255, 170, 0.1);
+  border: 1px solid #00ffaa;
+  color: #00ffaa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 2rem;
+  display: none;
+}
+.contact-content .contact-grid .contact-form .form-container .form-success.show {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.faq-section {
+  padding: 4rem 2rem;
+  background: #1a1a1a;
+}
+.faq-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.faq-section .section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.faq-section .faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-section .faq-list .faq-item {
+  background: #2a2a2a;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: 0.4s;
+}
+.faq-section .faq-list .faq-item .faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 2rem;
+  margin: -2rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.faq-section .faq-list .faq-item .faq-question:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.faq-section .faq-list .faq-item .faq-question .question-text {
+  font-weight: 600;
+  color: #ffffff;
+}
+.faq-section .faq-list .faq-item .faq-question .question-icon {
+  color: #00d4ff;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+.faq-section .faq-list .faq-item .faq-question.active .question-icon {
+  transform: rotate(45deg);
+}
+.faq-section .faq-list .faq-item .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+.faq-section .faq-list .faq-item .faq-answer.active {
+  max-height: 200px;
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  .contact-header {
+    padding: 3rem 1.5rem;
+  }
+  .contact-content {
+    padding: 0 1.5rem 3rem;
+  }
+  .faq-section {
+    padding: 3rem 1.5rem;
+  }
+  .contact-info .contact-methods .contact-method {
+    flex-direction: column;
+    text-align: center;
+  }
+  .contact-info .social-links {
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .navbar .nav-container {
+    padding: 0 1.5rem;
+  }
+  .contact-header {
+    padding: 2rem 1rem;
+  }
+  .contact-content {
+    padding: 0 1rem 2rem;
+  }
+  .faq-section {
+    padding: 2rem 1rem;
+  }
+  .contact-form .form-container {
+    padding: 2rem;
+  }
+}/*# sourceMappingURL=contact.css.map */

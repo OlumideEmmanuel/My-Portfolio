@@ -1,0 +1,527 @@
+@import 'variables';
+@import 'mixins';
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  background: $primary-bg;
+  color: $text-primary;
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+// Navigation
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: $spacing-sm 0;
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    @include flex-between;
+  }
+
+  .logo {
+    @include heading-3;
+    text-decoration: none;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-menu {
+    @include flex-center;
+    gap: $spacing-lg;
+    list-style: none;
+
+    @include tablet {
+      display: none;
+    }
+
+    .nav-link {
+      color: $text-secondary;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all $transition-fast;
+      position: relative;
+
+      &:hover, &.active {
+        color: $accent-blue;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $gradient-primary;
+        transition: width $transition-normal;
+      }
+
+      &:hover::after, &.active::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .theme-toggle {
+    @include button-secondary;
+    padding: $spacing-xs;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    // @include button-secondary;
+    // padding: $spacing-xs;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+}
+
+// Services Header
+.services-header {
+  padding: $spacing-xxl $spacing-lg $spacing-xl;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .section-title {
+    @include heading-2;
+    margin-bottom: $spacing-md;
+    @include slide-up(0.2s);
+  }
+
+  .section-subtitle {
+    color: $text-secondary;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    @include slide-up(0.4s);
+  }
+}
+
+// Services Grid
+.services-section {
+  padding: 0 $spacing-lg $spacing-xxl;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .services-grid {
+    @include grid-responsive(350px, $spacing-xl);
+
+    .service-card {
+      @include card;
+      @include card-hover;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      @include slide-up(0.4s);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(from 0deg, transparent, $accent-blue, transparent);
+        opacity: 0;
+        transition: all $transition-slow;
+        animation: rotate 3s linear infinite;
+        z-index: 0;
+      }
+
+      &:hover::before {
+        opacity: 0.1;
+      }
+
+      .service-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .service-icon {
+        font-size: 4rem;
+        margin-bottom: $spacing-lg;
+        background: $gradient-primary;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        transition: transform $transition-normal;
+      }
+
+      &:hover .service-icon {
+        transform: scale(1.1);
+      }
+
+      .service-title {
+        @include heading-3;
+        margin-bottom: $spacing-md;
+        font-size: 1.5rem;
+      }
+
+      .service-description {
+        color: $text-secondary;
+        margin-bottom: $spacing-lg;
+        line-height: 1.7;
+      }
+
+      .service-features {
+        list-style: none;
+        margin-bottom: $spacing-lg;
+
+        .feature-item {
+          @include flex-center;
+          gap: $spacing-sm;
+          margin-bottom: $spacing-sm;
+          color: $text-secondary;
+
+          &::before {
+            content: '✓';
+            color: $accent-blue;
+            font-weight: bold;
+            font-size: 1.1rem;
+          }
+        }
+      }
+
+      .service-price {
+        @include flex-column;
+        align-items: center;
+        margin-bottom: $spacing-lg;
+
+        .price-label {
+          color: $text-secondary;
+          font-size: 0.9rem;
+          margin-bottom: $spacing-xs;
+        }
+
+        .price-value {
+          @include heading-3;
+          color: $accent-blue;
+          font-size: 2rem;
+
+          .price-unit {
+            font-size: 1rem;
+            color: $text-secondary;
+          }
+        }
+      }
+
+      .service-cta {
+        @include button-primary;
+        width: 100%;
+        justify-content: center;
+
+        &:hover {
+          transform: translateY(-2px);
+          @include neon-glow;
+        }
+      }
+
+      // Featured service styling
+      &.featured {
+        border: 2px solid $accent-blue;
+        transform: scale(1.05);
+        box-shadow: $shadow-lg, $shadow-neon;
+
+        .service-title::after {
+          content: '⭐ Most Popular';
+          display: block;
+          font-size: 0.8rem;
+          color: $accent-blue;
+          font-weight: 500;
+          margin-top: $spacing-xs;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Process Section
+.process-section {
+  padding: $spacing-xxl $spacing-lg;
+  background: $secondary-bg;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    @include heading-2;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  .process-grid {
+    @include grid-responsive(250px);
+
+    .process-step {
+      text-align: center;
+      @include slide-up(0.4s);
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: $gradient-primary;
+        @include flex-center;
+        margin: 0 auto $spacing-lg;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $primary-bg;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          border-radius: 50%;
+          border: 2px solid $accent-blue;
+          opacity: 0.3;
+          animation: pulse 2s infinite;
+        }
+      }
+
+      .step-title {
+        @include heading-3;
+        margin-bottom: $spacing-md;
+        font-size: 1.3rem;
+      }
+
+      .step-description {
+        color: $text-secondary;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+// CTA Section
+.cta-section {
+  padding: $spacing-xxl $spacing-lg;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 170, 0.1));
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    @include heading-2;
+    margin-bottom: $spacing-md;
+  }
+
+  .cta-description {
+    color: $text-secondary;
+    font-size: 1.2rem;
+    margin-bottom: $spacing-xl;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    @include flex-center;
+    gap: $spacing-lg;
+    flex-wrap: wrap;
+
+    .cta-btn {
+      @include button-primary;
+
+      &.secondary {
+        @include button-secondary;
+      }
+    }
+  }
+}
+
+// Footer
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer {
+  background-color: $secondary-bg;
+  color: #fff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-about h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-about p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.footer-social .social-icons a img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-social .social-icons a:hover img {
+  transform: scale(1.2);  
+  opacity: 0.8;           
+}
+
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #777;
+  border-top: 1px solid #222;
+  padding-top: 15px;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links, .footer-social {
+    margin-top: 20px;
+  }
+}
+
+// Responsive Design
+@include tablet {
+  body {
+    padding-top: 70px;
+  }
+
+  .services-header,
+  .process-section,
+  .cta-section {
+    padding: $spacing-xl $spacing-md;
+  }
+
+  .services-section {
+    padding: 0 $spacing-md $spacing-xl;
+  }
+
+  .services-grid .service-card.featured {
+    transform: none;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@include mobile {
+  .navbar .nav-container {
+    padding: 0 $spacing-md;
+  }
+
+  .services-header,
+  .process-section,
+  .cta-section {
+    padding: $spacing-lg $spacing-sm;
+  }
+
+  .services-section {
+    padding: 0 $spacing-sm $spacing-lg;
+  }
+}

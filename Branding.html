@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branding & Design - Emmanuel Olumide</title>
+  <link rel="shortcut icon" href="/assets/icon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/branding.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Emmanuel Olumide</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="branding.html" class="nav-link active">Branding & Design</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="branding-header">
+    <h1>Branding & Design Gallery</h1>
+    <p>Explore my creative graphic design work including logos, flyers, and brand identities.</p>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="branding-gallery">
+    <div class="gallery-grid">
+      
+      <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Logo Design" onclick="openLightbox(this)">
+        <div class="overlay"><p>Logo Design</p></div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Flyer Design" onclick="openLightbox(this)">
+        <div class="overlay"><p>Flyer Design</p></div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Brand Identity" onclick="openLightbox(this)">
+        <div class="overlay"><p>Brand Identity</p></div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Packaging Design" onclick="openLightbox(this)">
+        <div class="overlay"><p>Packaging Design</p></div>
+      </div>
+
+        <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Packaging Design" onclick="openLightbox(this)">
+        <div class="overlay"><p>Packaging Design</p></div>
+      </div>
+            <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Flyer Design" onclick="openLightbox(this)">
+        <div class="overlay"><p>Flyer Design</p></div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Brand Identity" onclick="openLightbox(this)">
+        <div class="overlay"><p>Brand Identity</p></div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/Cooperate Picture.png" alt="Packaging Design" onclick="openLightbox(this)">
+        <div class="overlay"><p>Packaging Design</p></div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+    <div id="caption"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Emmanuel Olumide</h3>
+        <p>Creative Web Developer & Designer crafting digital experiences with precision and style.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="branding.html">Branding & Design</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+        <a href="https://www.linkedin.com/in/oguntoyinbo-emmanuel-9628b7233/" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png"/>
+        </a>
+        <a href="https://github.com/OlumideEmmanuel" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png"/>
+        </a>
+
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
+        <a href="https://wa.me/2349045717598" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Emmanuel Olumide. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openLightbox(img) {
+      document.getElementById("lightboxModal").style.display = "block";
+      document.getElementById("lightboxImg").src = img.src;
+      document.getElementById("caption").innerText = img.alt;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightboxModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

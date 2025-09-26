@@ -1,0 +1,46 @@
+// Color Variables
+$primary-bg: #0a0a0a;
+$secondary-bg: #1a1a1a;
+$card-bg: #2a2a2a;
+$text-primary: #ffffff;
+$text-secondary: #b0b0b0;
+$accent-blue: #00d4ff;
+$accent-teal: #00ffaa;
+$accent-purple: #8b5cf6;
+$gradient-primary: linear-gradient(135deg, $accent-blue, $accent-teal);
+$gradient-secondary: linear-gradient(135deg, $accent-purple, $accent-blue);
+
+// Typography
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-heading: 'Poppins', sans-serif;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$large: 1200px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Border radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+$shadow-neon: 0 0 20px rgba(0, 212, 255, 0.3);
