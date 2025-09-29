@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Branding & Design - Emmanuel Olumide</title>
   <link rel="shortcut icon" href="/assets/icon.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,54 +32,67 @@
   <!-- Gallery Section -->
   <section class="branding-gallery">
     <div class="gallery-grid">
-      
-      <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Logo Design" onclick="openLightbox(this)">
-        <div class="overlay"><p>Logo Design</p></div>
+      <!-- Each .gallery-item has a data-images attribute (pipe-separated list of image URLs).
+           The visible <img> is the thumbnail; when clicked the modal will open the whole list. -->
+      <div class="gallery-item" data-images="assets/Logo1.jpg|assets/Logo 7.png|assets/logo2.jpeg|assets/logo 5.png|assets/logo 9.jpeg" data-captions="">
+        <img src="assets/Logo 7.png" alt="Logo Design">
+        <div class="overlay"><p>Logo Designs</p></div>
       </div>
 
-      <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Flyer Design" onclick="openLightbox(this)">
-        <div class="overlay"><p>Flyer Design</p></div>
+      <div class="gallery-item" data-images="assets/Temmie.FYB.Sales-01.jpeg|assets/SeptemBer Rod-04.jpeg|assets/Content Creation-01.jpeg|assets/Flyer 4.jpeg|assets/Flyer 5.jpeg|assets/House party.jpg|assets/Temmy02.jpg|assets/menu.jpg|assets/Flyer 1.jpg|assets/Flyer 2.jpg|assets/Business Policy.jpg" data-captions="">
+        <img src="assets/Flyer 5.jpeg" alt="Flyer Design">
+        <div class="overlay"><p>Flyer Designs</p></div>
       </div>
 
-      <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Brand Identity" onclick="openLightbox(this)">
+      <div class="gallery-item" data-images="assets/Brand 4.png|assets/brand 2.jpg|assets/Brand 3.jpg|assets/FAQ.jpg|assets/bRAND pERSONALITY.png|assets/Letter Head 12.jpg" data-captions="">
+        <img src="assets/Brand 4.png" alt="Brand Identity">
         <div class="overlay"><p>Brand Identity</p></div>
       </div>
 
-      <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Packaging Design" onclick="openLightbox(this)">
+      <div class="gallery-item" data-images="assets/Velmida Landing Page.jpg" data-captions="">
+        <img src="assets/Velmida Landing Page.jpg" alt="Brand Identity">
+        <div class="overlay"><p>UI/UX</p></div>
+      </div>
+
+      <!-- <div class="gallery-item" data-images="assets/Cooperate%20Picture.png|assets/Package-2.png">
+        <img src="assets/Cooperate%20Picture.png" alt="Packaging Design">
         <div class="overlay"><p>Packaging Design</p></div>
       </div>
 
-        <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Packaging Design" onclick="openLightbox(this)">
+      <div class="gallery-item" data-images="assets/Cooperate%20Picture.png|assets/Cooperate%20Picture-2.png">
+        <img src="assets/Cooperate%20Picture.png" alt="Packaging Design">
         <div class="overlay"><p>Packaging Design</p></div>
       </div>
-            <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Flyer Design" onclick="openLightbox(this)">
+
+      <div class="gallery-item" data-images="assets/Cooperate%20Picture.png|assets/Flyer-2.png">
+        <img src="assets/Cooperate%20Picture.png" alt="Flyer Design">
         <div class="overlay"><p>Flyer Design</p></div>
       </div>
 
-      <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Brand Identity" onclick="openLightbox(this)">
+      <div class="gallery-item" data-images="assets/Cooperate%20Picture.png|assets/Brand-2.png">
+        <img src="assets/Cooperate%20Picture.png" alt="Brand Identity">
         <div class="overlay"><p>Brand Identity</p></div>
       </div>
 
-      <div class="gallery-item">
-        <img src="assets/Cooperate Picture.png" alt="Packaging Design" onclick="openLightbox(this)">
+      <div class="gallery-item" data-images="assets/Cooperate%20Picture.png|assets/Package-2.png">
+        <img src="assets/Cooperate%20Picture.png" alt="Packaging Design">
         <div class="overlay"><p>Packaging Design</p></div>
-      </div>
-      
+      </div> -->
     </div>
   </section>
 
   <!-- Lightbox Modal -->
-  <div id="lightboxModal" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-content" id="lightboxImg">
-    <div id="caption"></div>
+  <div id="lightboxModal" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery">
+    <button class="lb-close" aria-label="Close (Esc)">&times;</button>
+    <button class="lb-prev" aria-label="Previous (Left)">&lsaquo;</button>
+    <button class="lb-next" aria-label="Next (Right)">&rsaquo;</button>
+
+    <div class="lb-content" role="document">
+      <img class="lb-image" id="lb-image" src="" alt="">
+      <div id="caption" class="lb-caption"></div>
+
+      <div class="lb-thumbs" aria-hidden="false"></div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -101,18 +114,16 @@
       <div class="footer-social">
         <h4>Follow Me</h4>
         <div class="social-icons">
-        <a href="https://www.linkedin.com/in/oguntoyinbo-emmanuel-9628b7233/" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png"/>
-        </a>
-        <a href="https://github.com/OlumideEmmanuel" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png"/>
-        </a>
-
-        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png"/></a>
-        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
-        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
-        <a href="https://wa.me/2349045717598" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png"/>
+          <a href="https://www.linkedin.com/in/oguntoyinbo-emmanuel-9628b7233/" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"/>
+          </a>
+          <a href="https://github.com/OlumideEmmanuel" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png" alt="GitHub"/>
+          </a>
+          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"/></a>
+          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"/></a>
+          <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"/></a>
+          <a href="https://wa.me/2349045717598" target="_blank"><img src="https://img.icons8.com/ios-filled/24/ffffff/whatsapp.png" alt="WhatsApp"/></a>
         </div>
       </div>
     </div>
@@ -121,16 +132,158 @@
     </div>
   </footer>
 
+  <!-- Lightbox Script -->
   <script>
-    function openLightbox(img) {
-      document.getElementById("lightboxModal").style.display = "block";
-      document.getElementById("lightboxImg").src = img.src;
-      document.getElementById("caption").innerText = img.alt;
-    }
+    (function () {
+      // helpers
+      const $ = (sel, ctx = document) => ctx.querySelector(sel);
+      const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+      const encode = (s) => encodeURI(s.trim());
 
-    function closeLightbox() {
-      document.getElementById("lightboxModal").style.display = "none";
-    }
+      const modal = $('#lightboxModal');
+      const lbImage = $('#lb-image');
+      const captionEl = $('#caption');
+      const thumbsEl = $('.lb-thumbs');
+      const prevBtn = $('.lb-prev');
+      const nextBtn = $('.lb-next');
+      const closeBtn = $('.lb-close');
+
+      let currentGallery = [];
+      let currentCaptions = [];
+      let currentIndex = 0;
+      let touchStartX = 0;
+
+      function openGallery(images, startIndex = 0, captions = []) {
+        currentGallery = images;
+        currentCaptions = captions;
+        currentIndex = Math.max(0, Math.min(startIndex, images.length - 1));
+        render();
+        modal.style.display = 'block';
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        // focus for accessibility
+        closeBtn.focus();
+        preloadAll(images);
+      }
+
+      function closeGallery() {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function render() {
+        lbImage.src = encode(currentGallery[currentIndex]);
+        lbImage.alt = currentCaptions[currentIndex] || `Image ${currentIndex + 1} of ${currentGallery.length}`;
+        captionEl.textContent = currentCaptions[currentIndex] || `${currentIndex + 1} / ${currentGallery.length}`;
+        renderThumbs();
+      }
+
+      function renderThumbs() {
+        thumbsEl.innerHTML = '';
+        currentGallery.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = encode(src);
+          img.dataset.index = i;
+          img.className = 'lb-thumb' + (i === currentIndex ? ' active' : '');
+          img.alt = currentCaptions[i] || `thumb ${i + 1}`;
+          thumbsEl.appendChild(img);
+        });
+      }
+
+      function prev() {
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        render();
+      }
+
+      function next() {
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        render();
+      }
+
+      // click on gallery-item
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const raw = item.dataset.images || '';
+          if (!raw) return;
+          const images = raw.split('|').map(s => s.trim()).filter(Boolean);
+          const captions = (item.dataset.captions || '').split('|').map(s => s.trim());
+          // try find start index from clicked thumb (match filename)
+          const thumb = item.querySelector('img');
+          let startIndex = 0;
+          if (thumb) {
+            const thumbName = extractName(thumb.getAttribute('src'));
+            const found = images.findIndex(p => extractName(p) === thumbName);
+            if (found >= 0) startIndex = found;
+          }
+          openGallery(images, startIndex, captions);
+        });
+      });
+
+      // thumbnail click
+      thumbsEl.addEventListener('click', (e) => {
+        const t = e.target;
+        if (t && t.dataset && t.dataset.index) {
+          currentIndex = Number(t.dataset.index);
+          render();
+        }
+      });
+
+      // prev/next buttons
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      // close
+      closeBtn.addEventListener('click', closeGallery);
+      modal.addEventListener('click', (e) => {
+        // close when clicking backdrop
+        if (e.target === modal) closeGallery();
+      });
+
+      // keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (modal.style.display === 'block') {
+          if (e.key === 'Escape') closeGallery();
+          if (e.key === 'ArrowLeft') prev();
+          if (e.key === 'ArrowRight') next();
+        }
+      });
+
+      // touch swipe on main image
+      lbImage.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+      lbImage.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - touchStartX;
+        if (diff > 50) prev();
+        if (diff < -50) next();
+      });
+
+      // helper to extract filename
+      function extractName(path) {
+        try {
+          const url = path.split('/').pop();
+          return decodeURI(url).toLowerCase();
+        } catch (err) {
+          return path.toLowerCase();
+        }
+      }
+
+      // preload
+      function preloadAll(list) {
+        list.forEach(src => {
+          const i = new Image();
+          i.src = encode(src);
+        });
+      }
+
+      // make prev/next work with clicks outside image but inside content (optional)
+      // Buttons already provided.
+
+      // accessibility: stop focus trap if needed - minimal handling
+    })();
   </script>
 
 </body>
