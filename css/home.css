@@ -224,7 +224,7 @@ body {
 }
 .hero .scroll-indicator {
   position: absolute;
-  bottom: 4rem;
+  bottom: 5rem;
   left: 50%;
   transform: translateX(-50%);
   color: #00d4ff;
